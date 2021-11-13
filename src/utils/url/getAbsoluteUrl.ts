@@ -2,8 +2,8 @@
  * Returns an absolute URL based on the given path.
  */
 export function getAbsoluteUrl(path: string, baseUrl?: string): string {
-  // Ignore Full URL
-  if (path.startsWith('http') || path.startsWith('https')) {
+  // Ignore url with any protocol or starts with *、:
+  if (/^[a-z][a-z0-9+.-]*:/.test(path) || /^[:*]/.test(path)) {
     return path
   }
 
